@@ -1,10 +1,40 @@
 #! /bin/sh
 
 pgrep -x sxhkd > /dev/null || sxhkd &
+
 killall polybar
 $HOME/.config/polybar/launch.sh
 
-bspc monitor -d 1 2 3 4
+
+# Set up xrandr for screen layout
+xrandr --output "eDP-1-1" --primary --mode 1920x1080 --rate 60 --rotate normal
+xrandr --output "DP-0.1" --mode 1920x1080 --rate 60 --rotate normal --same-as "eDP-1-1"
+xrandr --output "DP-0.3" --mode 1920x1080 --rate 60 --rotate normal --right-of "eDP-1-1"
+
+# Wait for xrandr to apply changes
+sleep 1
+
+# Create desktops and assign them across all available monitors
+bspc monitor -d I II III IV 
+
+# Optional: Assign specific desktops to the primary monitor
+bspc desktop I --to-monitor primary
+bspc desktop V --to-monitor secondary
+
+bspc desktop IX --remove
+bspc desktop X --remove
+bspc desktop XI --remove
+bspc desktop XII --remove
+
+
+# Second monitor
+#if [[ $(xrandr -q | grep 'DP-0.3 connected') ]]; then
+#    xrandr --output eDP-1-1 --primary --mode 1920x1080 --rotate normal 
+#	   --output DP-0.3 --mode 1920x1080 --rotate normal --right-of eDP-1-1
+#	   --output DP-0.1 --mode 1920x1080 --rotate normal --same-as eDP-1-1
+    # Workspaces
+#    bspc monitor -DP-0.3 -d V VI VII VIII
+#fi
 
 bspc config border_width	2
 bspc config window_gap		12
@@ -16,7 +46,7 @@ bspc config gapless_monocle	true
 #AutoStart application
 sxhkd &
 picom --config $HOME/.config/picom/picom.conf &
-feh --bg-scale $HOME/Pictures/jelly_purple_2.png &
+feh --bg-scale $HOME/.config/Wallpaper/jelly_bright_comic.png &
 dunst &
 rofi &
 xscreensaver &

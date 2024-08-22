@@ -1,3 +1,5 @@
+
+
 #
 #
 # icecube hoteky bindings
@@ -12,11 +14,14 @@
 
 # terminal emulator
 super + Return
-	urxvt
-
+	kitty
 # program launcher
-super + @space
-	dmenu_run
+super + d
+	rofi -show drun
+
+# window launcher
+super + shift + d
+	rofi -show window
 
 # make schkd reload its configuration files
 super + Escape
@@ -53,7 +58,7 @@ super + g
 
 # set the windowe state
 super + {t,shift + t,s,f}
-	bspc node -t {tiles,pseudo_tiled,floating,fullscreen}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -127,4 +132,41 @@ super + alt + shift + {h,j,k,l}
 
 # move a floating window
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20 ,0-20 20 0}
+	bspc node -v {-20 0,0 20 ,0 -20, 20 0}
+
+#
+# Volume
+#
+
+# Increase volume
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+# Decrease volume
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# Mute/Unmute volume
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+
+#
+# Custom
+#
+
+# firefox
+super + alt + b
+	firefox
+
+#filemanager
+super + e
+	nautilus
+
+#clion 
+super + alt + c
+	clion
+
+#xscreensaver
+super + ctrl + q
+	xscreensaver-command -lock

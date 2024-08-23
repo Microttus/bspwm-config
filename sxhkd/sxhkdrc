@@ -150,23 +150,35 @@ XF86AudioLowerVolume
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# Play/Pause music
+XF86AudioPlay
+    playerctl play-pause
 
 #
 # Custom
 #
 
-# firefox
+# Firefox
 super + alt + b
 	firefox
 
-#filemanager
+# Filemanager
 super + e
 	nautilus
 
-#clion 
+# Clion 
 super + alt + c
 	clion
 
-#xscreensaver
+# xscreensaver
 super + ctrl + q
 	xscreensaver-command -lock
+
+# system monitor
+super + alt + n
+	htop
+
+# Spotify
+super + alt + m
+	spotify
+

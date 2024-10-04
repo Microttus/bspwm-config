@@ -1,3 +1,5 @@
+![ICeCube](https://github.com/Microttus/bspwm-config/blob/main/Wallpaper/icecube_5.txt)
+
 # IceCube bspwm setup
 
 Here are my dotfiles for setup of bspwm on a ubuntu machine.

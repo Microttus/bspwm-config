@@ -5,20 +5,21 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 killall polybar
 $HOME/.config/polybar/launch.sh
 
-
+#bspc monitor -r
 # Second monitor
-#if [[ $(xrandr -q | grep 'DP-0.3 connected') ]]; then
+#if [[ $(xrandr --listmonitors | grep 'DP-0.3') ]]; then
 #    xrandr --output "eDP-1-1" --primary --mode 1920x1080 --rate 60 --rotate normal
-#    xrandr --output "DP-0.1" --mode 1920x1080 --rate 60 --rotate normal --same-as "eDP-1-1"
-#    xrandr --output "DP-0.3" --mode 1920x1080 --rate 60 --rotate normal --right-of "eDP-1-1"
+#    xrandr --output "DP-0.1" --mode 1920x1080 --rate 60 --rotate normal --right-of "eDP-1-1"
+#    xrandr --output "DP-0.3" --mode 1920x1080 --rate 60 --rotate normal --right-of "DP-0.1"
 #    sleep 1
 #    # Workspaces
-#    bspc monitor -d V VI VII VIII
-#    bspc monitor "eDP-1-1" -d I II III IV
+#    bspc monitor "eDP-1-1" -d 󰆧
+#    bspc monitor ^2 -d α β γ δ
+#    bspc monitor ^3 -d ε ζ η θ
 #else 
 #    xrandr --output "eDP-1-1" --primary --mode 1920x1080 --rate 60 --rotate normal
 #    sleep 1
-#    bspc monitor -d I II III IV
+#    bspc monitor -d 󰆧 I II III IV
 #fi
 
 # Monitors
@@ -31,14 +32,14 @@ sleep 1
 #bspc monitor -r
 #bspc monitor -d I II III IV V
 #bspc monitor -d V VI VII VIII
-bspc monitor "eDP-1-1" -d Ξ 
+bspc monitor "eDP-1-1" -d 󰆧
 bspc monitor ^2 -d α β γ δ
 bspc monitor ^3 -d ε ζ η θ
 
 #bcpc desktop II --to-monitor "DP-0.1"
 #bcpc desktop V --to-monitor "DP-0.3"
 
-bspc config border_width	2
+bspc config border_width	0
 bspc config window_gap		12
 
 bspc config split_ratio		0.52
@@ -47,8 +48,8 @@ bspc config gapless_monocle	true
 
 #AutoStart application
 sxhkd &
-#picom --config $HOME/.config/picom/picom.conf &
-picom &
+picom --config $HOME/.config/picom/picom.conf &
+#picom &
 feh --bg-scale $HOME/.config/Wallpaper/jelly_bright_comic.png &
 dunst &
 rofi &

@@ -14,7 +14,7 @@
 
 # terminal emulator
 super + Return
-	kitty
+	ghostty
 # program launcher
 super + d
 	rofi -show drun
@@ -181,4 +181,12 @@ super + alt + n
 # Spotify
 super + alt + m
 	spotify
+
+# Powermenu
+super + alt + p
+	~/.config/rofi/powermenu.sh
+
+# Screenshot
+super + shift + p
+	scrot -s ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png
 

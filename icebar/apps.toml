@@ -1,0 +1,37 @@
+# List of applications to display on the dock
+
+[[applications]]
+name = "Firefox"
+exec = "/usr/bin/firefox"
+icon = "/usr/share/icons/hicolor/48x48/apps/firefox.png"
+
+#[[applications]]
+#name = "Terminal"
+#exec = "/usr/bin/kitty"
+#icon = "/home/rhino/Pictures/cjutty.png"
+#icon = "/usr/share/icons/hicolor/256x256/apps/kitty.png"
+
+[[applications]]
+name = "Ghostty"
+exec = "/usr/bin/ghostty"
+icon = "/home/rhino/Pictures/ghostty-catppuccin-mocha.png"
+
+#[[applications]]
+#name = "Cura"
+#exec = "/home/rhino/AppImage/UltiMaker-Cura-5.9.0-linux-X64.AppImage"
+#icon = "/home/rhino/Pictures/curalogo.png"
+
+#[[applications]]
+#name = "Chitubox"
+#exec = "/opt/CBD/CHITUBOX_Basic/CHITUBOX_Basic.sh"
+#icon = "/opt/CBD/CHITUBOX_Basic/bin/Resources/Image/SoftwareIcon/freeIcon.ico"
+
+[[applications]]
+name = "Files"
+exec = "/usr/bin/nautilus"
+icon = "/home/rhino/Pictures/nautilusicon.png"
+
+#[[applications]]
+#name = "Isaac Sim"
+#exec = "/home/rhino/.local/share/ov/pkg/isaac-sim-4.2.0/isaac-sim.selector.sh"
+#icon = "/home/rhino/Pictures/isaacsim.png"

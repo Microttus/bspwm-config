@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-killall polybar
+killall polybar icebar
 $HOME/.config/polybar/launch.sh
 
 #bspc monitor -r
@@ -23,21 +23,25 @@ $HOME/.config/polybar/launch.sh
 #fi
 
 # Monitors
-xrandr --output "eDP-1-1" --primary --mode 1920x1080 --rate 60 --rotate normal
-xrandr --output "DP-0.1" --mode 1920x1080 --rate 60 --rotate normal --right-of "eDP-1-1"
-xrandr --output "DP-0.3" --mode 1920x1080 --rate 60 --rotate normal --right-of "DP-0.1"
-sleep 1
+#xrandr --output "eDP-1-1" --primary --mode 1920x1080 --rate 60 --rotate normal
+#xrandr --output "DP-0.1" --mode 1920x1080 --rate 60 --rotate normal --right-of "eDP-1-1"
+#xrandr --output "DP-0.3" --mode 1920x1080 --rate 60 --rotate normal --right-of "DP-0.1"
+#sleep 1
 
 # Workspaces
 #bspc monitor -r
-#bspc monitor -d I II III IV V
+bspc monitor -d I II III IV V VI
+#bspc monitor -d 󰆧 I II III IV V
 #bspc monitor -d V VI VII VIII
-bspc monitor "eDP-1-1" -d 󰆧
-bspc monitor ^2 -d α β γ δ
-bspc monitor ^3 -d ε ζ η θ
+#bspc monitor "eDP-1-1" -d 󰆧
+#bspc monitor ^2 -d α β γ δ
+#bspc monitor ^3 -d ε ζ η θ
 
 #bcpc desktop II --to-monitor "DP-0.1"
 #bcpc desktop V --to-monitor "DP-0.3"
+
+bspc rule -a Icebar state=floating manage=on focus=off layer=normal sticky=on
+bspc rule -a "Isaac Sim 4.5.0" state=floating
 
 bspc config border_width	0
 bspc config window_gap		12
@@ -46,12 +50,15 @@ bspc config split_ratio		0.52
 bspc config borderless_monocle	true
 bspc config gapless_monocle	true
 
+#Key-remapping
+xmodmap ~/.Xmodmap
+
 #AutoStart application
 sxhkd &
 picom --config $HOME/.config/picom/picom.conf &
 #picom &
-feh --bg-scale $HOME/.config/Wallpaper/jelly_bright_comic.png &
+feh --bg-scale $HOME/Pictures/jupiter.jpg &
 dunst &
-rofi &
+#rofi -show drun run window &
 xscreensaver &
-
+.config/icebar/icebar
